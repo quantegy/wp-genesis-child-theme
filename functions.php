@@ -33,5 +33,6 @@ require_once('functions_widget_title.php');
 require_once('functions_logo.php');
 require_once('functions_site_description.php');
 require_once('functions_footer_credits.php');
+require_once('functions_contact_widget.php');
 
 

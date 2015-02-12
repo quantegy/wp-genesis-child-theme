@@ -386,8 +386,9 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"],
 .button {
-	background-color: #444; /* UCI custom */
+	background-color: #767676; /* UCI custom */
 	border: none;
+	border-radius: 8px;
 	color: #fff;
 	cursor: pointer;
 	font-size: 16px;
@@ -411,7 +412,15 @@ input:hover[type="button"],
 input:hover[type="reset"],
 input:hover[type="submit"],
 .button:hover {
-	background-color: #767676; /* UCI custom */
+	background-color: #666; /* UCI custom */
+	color: #fff;
+}
+button:focus,
+input:focus[type="button"],
+input:focus[type="reset"],
+input:focus[type="submit"],
+.button:focus {
+	background-color: #666; /* UCI custom */
 	color: #fff;
 }
 
@@ -824,6 +833,39 @@ img.alignright,
 	text-align: center;
 }
 
+/* UCI custom */
+.uci-contact {
+	font-style: normal;
+}
+
+.uci-contact a {
+	border: none;
+}
+
+.uci-contact-actions {
+	position: relative;
+	width: 100%
+}
+
+.uci-contact-actions a {
+	background-color: #767676;
+	border: none;
+	border-radius: 8px;
+	color: #fff;
+	display: inline-block;
+	font-size: 20px;
+	height: 42px;
+	line-height: 45px;
+	margin: 8px;
+	text-align: center;
+	width: 48px;
+}
+
+.uci-contact-actions a:hover,
+.uci-contact-actions a:focus {
+	background-color: #666;
+}
+
 /* ## Featured Content
 --------------------------------------------- */
 
@@ -897,6 +939,12 @@ img.alignright,
 .site-header {
 	background-color: #0064a4; /* UCI custom */
 	min-height: 75px; /* UCI custom */
+}
+
+/*UCI custom */
+.site-header,
+.site-header * {
+	color: #fff;
 }
 
 .site-header .wrap {
@@ -1128,7 +1176,7 @@ img.alignright,
 
 .nav-primary .genesis-nav-menu a:focus,
 .nav-primary .genesis-nav-menu a:hover {
-	background-color: #444; /* UCI custom */
+	background-color: #666; /* UCI custom */
 	color: #fff; /* UCI custom */
 	text-decoration: none; /* UCI custom */
 }
@@ -1145,6 +1193,7 @@ img.alignright,
 
 .nav-secondary {
 	background-color: #fff;
+	border-bottom: 2px solid #f2f2f2;
 }
 
 .nav-secondary .genesis-nav-menu a {
@@ -1160,7 +1209,7 @@ img.alignright,
 
 .nav-secondary .genesis-nav-menu a:focus,
 .nav-secondary .genesis-nav-menu a:hover {
-	background-color: #444; /* UCI custom */
+	background-color: #666; /* UCI custom */
 	color: #fff; /* UCI custom */
 	text-decoration: none; /* UCI custom */
 }
@@ -1483,6 +1532,15 @@ li.comment {
 	.site-header .widget-area,
 	.title-area {
 		width: 100%;
+	}
+	
+	/* UCI custom */
+	.site-header .widget-area{
+		text-align: center;
+	}
+	
+	.nav-header .genesis-nav-menu a {
+		margin: 16px;
 	}
 
 	.site-header .wrap {
