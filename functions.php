@@ -34,5 +34,6 @@ require_once('functions_logo.php');
 require_once('functions_site_description.php');
 require_once('functions_footer_credits.php');
 require_once('functions_contact_widget.php');
+require_once('fucntions_social_media_list_widget.php');
 
 
