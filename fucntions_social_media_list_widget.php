@@ -25,7 +25,7 @@ class UCI_Social_Media_List_Widget extends WP_Widget {
 		$control_ops = array( 'id_base' => 'social-media-list-widget' );
 
 		//* Create the widget.
-		$this->WP_Widget( 'social-media-list-widget', __('UCI - Social Media List', 'contact'), $widget_ops, $control_ops );
+		$this->WP_Widget( 'social-media-list-widget', __('UCI - Social Media List', 'social'), $widget_ops, $control_ops );
 	}
 
 	/**
@@ -44,7 +44,27 @@ class UCI_Social_Media_List_Widget extends WP_Widget {
 		if ( $title )
 			echo $before_title . $title . $after_title;
 			
-		//TODO: SHOW GUTS HERE
+		//* Display social media links
+		if ( count( $instance['links'] ) > 0 ) {
+			
+			if ( 'horz' == $instance['arrangement'] )
+				$arrangement = ' uci-social-horz';
+			
+			echo '<ul class="uci-social' . $arrangement . '">';
+			
+			if ( 'icon' == $instance['display'] )
+				$hideText = ' class="screen-reader-text"';
+			
+			foreach( $instance['links'] as $link ) {
+				$platformParts = explode( '__',  $link['platform']);
+				if ( $link['url'] && trim( $link['url'] ) != '' ) {
+					echo '<li><a href="' . $link['url'] . '"><i class="fa fa-' . $platformParts[0] . '"></i><span' . $hideText . '>' . $platformParts[1] . '</span></a></li>';
+				}
+				
+			}
+			
+			echo '</ul>';
+		}
 			
 		//* After widget (defined by themes).
 		echo $after_widget;
@@ -58,6 +78,11 @@ class UCI_Social_Media_List_Widget extends WP_Widget {
 	public function form( $instance ) {
 		
 		$uci_debug = false;
+		
+		if ( $uci_debug ) {
+			print_r($instance);
+			echo '<hr>';
+		}		
 		
 		$selectable_platforms = array(
 			array('Facebook','facebook'),
@@ -79,41 +104,60 @@ class UCI_Social_Media_List_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title:', 'hybrid'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" style="width:100%;" />
 		</p>
-		<button class="uci-social uci-add">Add link</button>			
+		
+		<p>
+			<label>Arrangement:
+				<select name="<?php echo $this->get_field_name( 'arrangement' ); ?>">
+<?php
+					echo '<option value="vert"';
+					if ( 'vert' == $instance['arrangement'] )
+						echo ' selected';
+					echo '>Vertical</option>';
+					echo '<option value="horz"';
+					if ( 'horz' == $instance['arrangement'] )
+						echo ' selected';
+					echo '>Horizontal</option>';
+					
+?>
+				</select>
+			</label>
+		</p>
+		
+		<p>
+			<label>Display:
+				<select name="<?php echo $this->get_field_name( 'display' ); ?>">
+<?php
+					echo '<option value="text"';
+					if ( 'text' == $instance['display'] )
+						echo ' selected';
+					echo '>Icon and text</option>';
+					echo '<option value="icon"';
+					if ( 'icon' == $instance['display'] )
+						echo ' selected';
+					echo '>Icon only</option>';
+					
+?>
+				</select>
+			</label>
+		</p>
 
 <?php
 			
 		if ( isset( $instance['links'] ) ) {
 			$links = $instance['links'];
 		} else {
-			$links = array();
-		}
-		
-		if ( $_POST['uci-add'] == 'add' ) {
-			array_unshift( $links, array( 'platform'=>'','url'=>'' ) );
-			//array_splice( $links, 0, 0, 'add' );
-		}
-		
-		if ( $_POST['uci-insert'] && ctype_digit( $_POST['uci-insert'] ) ) {
-			$position = $_POST['uci-insert'];
-			if ( $position > 0 && $position <= count( $links )  ) {
-				array_splice( $links, $position, 0, 'insert' );
-			}
-			$links[$position] = array( 'platform'=>'', 'url'=>'' );
-		}
-		
-		if ( $_POST['uci-remove'] && ctype_digit( $_POST['uci-remove'] ) ) {
-			if ( count( $links ) == 1 ) {
-				$links = array();
-				$instance['links'] = array();
-			} else {
-				$position = $_POST['uci-remove'] - 1; // because array indices start at 0
-				if ( $position >= 0 && $position < count( $links )  ) {
-					array_splice( $links, $position, 1);
-				}
-			}
-		}
-		
+			$links = array(
+				array('platform'=>'','url'=>''),
+				array('platform'=>'','url'=>''),
+				array('platform'=>'','url'=>''),
+				array('platform'=>'','url'=>''),
+				array('platform'=>'','url'=>''),
+				array('platform'=>'','url'=>''),
+				array('platform'=>'','url'=>''),
+				array('platform'=>'','url'=>''),
+				array('platform'=>'','url'=>'')
+			);
+		}		
 
 		if ( $uci_debug ) {
 			echo '<br>';
@@ -138,8 +182,6 @@ class UCI_Social_Media_List_Widget extends WP_Widget {
 			}
 			
 ?>			
-			<fieldset>
-				<legend><strong>Social Media Link <?php echo $key + 1; ?></strong></legend>
 				<p>
 					<label>Platform:
 						<select name="<?php echo $this->get_field_name( 'links' ); ?>[<?php echo $key; ?>][platform]">
@@ -147,8 +189,11 @@ class UCI_Social_Media_List_Widget extends WP_Widget {
 <?php
 	
 			foreach ($selectable_platforms as $selection) {
-				echo '<option value="' . $selection[1] . '"';
-				if ( $selection[1] == $value[platform] )
+				// option value is both array elements concatenated with '__'
+				// so that both can be extrated for the displayed ul/li
+				$optionValue = $selection[1] . '__' . $selection[0];
+				echo '<option value="' . $optionValue . '"';
+				if ( $optionValue == $value[platform] )
 					echo ' selected="selected"';
 				echo '>' . $selection[0] . '</option>';
 			}
@@ -162,68 +207,12 @@ class UCI_Social_Media_List_Widget extends WP_Widget {
 						<input name="<?php echo $this->get_field_name( 'links' ); ?>[<?php echo $key; ?>][url]" value="<?php echo $value[url] ?>"/>
 					</label>
 				</p>
-			</fieldset>
-			<p>
-				<button class="uci-social uci-insert">Insert link below</button>
-				<button class="uci-social uci-remove">Remove this link</button>
-			</p>
 			</div>
 		</p>
 
 <?php
 							
 		}
-?>
-
-		<script>
-			
-			(function($) {
-				/**
-				 * The idea here is that the add/insert/remove buttons
-				 * inject hidden form inputs and auto-submit the form.
-				 * Those form input values are used by php to manage the 
-				 * links array one element at a time.
-				 */ 
-				 
-				$('button.uci-social').on('click', function(event) {
-					event.preventDefault();
-				});
-				
-				$('.uci-add').on('click', function() {
-					$(this).parent('.widget-content')
-						.append('<input type="hidden" name="uci-add" value="add"/>')
-						.siblings('.widget-control-actions')
-							.find('.widget-control-save')
-								.trigger('click');
-				});
-				
-				$('.uci-insert').on('click', function() {
-					var position = $(this).parents('.uci-social-container').attr('data-position');
-					
-					$(this).parents('.widget-content')
-						.append('<input type="hidden" name="uci-insert" value="' + position + '"/>')
-						.siblings('.widget-control-actions')
-							.find('.widget-control-save')
-								.trigger('click');
-				});
-				
-				$('.uci-remove').on('click', function() {
-					var position = $(this).parents('.uci-social-container').attr('data-position');
-					
-					$(this).parents('.widget-content')
-						.append('<input type="hidden" name="uci-remove" value="' + position + '"/>')
-						.siblings('.widget-control-actions')
-							.find('.widget-control-save')
-								.trigger('click');
-				});
-			
-			}
-			(jQuery)
-			);
-		</script>
-
-<?php
-
 	}
 
 	/**
@@ -232,6 +221,12 @@ class UCI_Social_Media_List_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = esc_html( $new_instance['title'] );
+		
+		if ( isset ( $new_instance['arrangement'] ) )
+			$instance['arrangement'] = $new_instance['arrangement'];
+
+		if ( isset ( $new_instance['display'] ) )
+			$instance['display'] = $new_instance['display'];
 
 		if ( isset ( $new_instance['links'] ) ) {
 			$instance['links'] = $new_instance['links'];
