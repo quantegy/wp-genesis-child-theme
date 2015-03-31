@@ -1635,6 +1635,10 @@ li.comment {
 	.footer-widgets-4 {
 		width: 50%; /* UCI custom */
 	}
+	
+	.footer-widgets-3 {
+		clear: left;
+	}
 
 }
 
