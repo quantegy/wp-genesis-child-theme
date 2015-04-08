@@ -7,8 +7,8 @@ The Genesis UCI theme is maintained by Strategic Communications and is the defau
 * Dependencies
     * [Genesis Framework by StudioPress](http://my.studiopress.com/themes/genesis/)
 * Installation
-    * Unzip and place all files in wp-content/themes/genesis-uci/
-    * *If genesis-uci doesn't exist in your file structure, go ahead and create it*
+    * Unzip and place folder in wp-content/themes/
+        * *Feel free to rename the unzipped folder to whatever you like. I recommend 'genesis-uci'.*
 * Recommended Plugins
     * [Page Builder by SiteOrigin](https://siteorigin.com/page-builder/)
 
