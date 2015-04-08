@@ -15,3 +15,4 @@ The Genesis UCI theme is maintained by Strategic Communications and is the defau
 ### Who do I talk to? ###
 
 * Repo administered by [Todd McGill](mailto:tmcgill@uci.edu), Strategic Communications
+* There's a handy [help/how-to page](http://sites.uci.edu/docs/customizing/themes/genesis-uci-theme/) on Sites.
