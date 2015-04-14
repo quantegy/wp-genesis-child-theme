@@ -5,7 +5,7 @@ include_once( get_template_directory() . '/lib/init.php' );
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'Genesis UCI Theme' );
 define( 'CHILD_THEME_URL', 'http://sites.uci.edu/' );
-define( 'CHILD_THEME_VERSION', '0.0.1' );
+define( 'CHILD_THEME_VERSION', '1.0.1' );
 
 //* Enqueue custom assets
 add_action( 'wp_enqueue_scripts', 'custom_assets' );
@@ -27,7 +27,9 @@ add_theme_support( 'genesis-footer-widgets', 4 );
 //* Use standard WordPress search because the Genesis variant isn't accessible
 remove_filter( 'get_search_form', 'genesis_search_form' );
 
+
 //* UCI theme customizations
+require_once('functions_post_title.php');
 require_once('functions_menu_levels.php');
 require_once('functions_widget_title.php');
 require_once('functions_logo.php');
