@@ -133,7 +133,7 @@ input[type="search"] {
 ---------------------------------------------------------------------------------------------------- */
 
 html {
-	background-color: #444; /* UCI custom */
+	background-color: #333; /* UCI custom */
 }
 
 /* ## Typographical Elements
@@ -141,7 +141,7 @@ html {
 
 body {
 	background-color: #f2f2f2; /* UCI custom */
-	color: #444; /* UCI custom */
+	color: #333; /* UCI custom */
 	font-family: Helvetica, sans-serif; /* UCI custom */
 	font-size: 16px; /* UCI custom */
 	font-weight: 300;
@@ -236,7 +236,7 @@ h3,
 h4,
 h5,
 h6 {
-	color: #444; /* UCI custom */
+	color: #333; /* UCI custom */
 	font-family: Helvetica, sans-serif; /* UCI custom */
 	font-weight: 400;
 	line-height: 1.2;
@@ -351,7 +351,7 @@ select,
 textarea {
 	background-color: #fff;
 	border: 1px solid #ddd;
-	color: #444 !important; /* UCI custom */
+	color: #333 !important; /* UCI custom */
 	font-size: 18px;
 	font-weight: 300;
 	padding: 16px;
@@ -434,7 +434,7 @@ input:focus[type="submit"],
 .footer-widgets input:hover[type="submit"],
 .footer-widgets .button:hover {
 	background-color: #fff;
-	color: #444; /* UCI custom */
+	color: #333; /* UCI custom */
 }
 
 .button {
@@ -706,7 +706,7 @@ th {
 
 .entry-title a,
 .sidebar .widget-title a {
-	color: #444; /* UCI custom */
+	color: #333; /* UCI custom */
 }
 
 .entry-title a:hover {
@@ -942,12 +942,12 @@ img.alignright,
 }
 
 .sidebar .widget.enews-widget {
-	background-color: #444; /* UCI custom */
+	background-color: #333; /* UCI custom */
 }
 
 .enews-widget input,
 .enews-widget input:focus {
-	border: 1px solid #444; /* UCI custom */
+	border: 1px solid #333; /* UCI custom */
 }
 
 .enews-widget input {
@@ -964,7 +964,7 @@ img.alignright,
 
 .enews-widget input:hover[type="submit"] {
 	background-color: #fff;
-	color: #444; /* UCI custom */
+	color: #333; /* UCI custom */
 }
 
 .enews form + p {
@@ -1077,7 +1077,7 @@ img.alignright,
 }
 
 .genesis-nav-menu a {
-	color: #444; /* UCI custom */
+	color: #333; /* UCI custom */
 	display: block;
 	padding: 16px 24px; /* UCI custom */
 }
@@ -1138,7 +1138,7 @@ img.alignright,
 
 /* UCI custom */
 .genesis-nav-menu .menu-item > .sub-menu .sub-menu-close button:hover {
-	background-color: #444;
+	background-color: #333;
 }
 
 .genesis-nav-menu .menu-item.uci-menu-toggle-on > .sub-menu .sub-menu-close button:after {
@@ -1210,7 +1210,7 @@ img.alignright,
 }
 
 .nav-primary .genesis-nav-menu a {
-	color: #444; /* UCI custom */
+	color: #333; /* UCI custom */
 	border-bottom: none; /* UCI custom */
 }
 
@@ -1243,7 +1243,7 @@ img.alignright,
 }
 
 .nav-secondary .genesis-nav-menu a {
-	color: #444; /* UCI custom */
+	color: #333; /* UCI custom */
 	border-bottom: none; /* UCI custom */
 }
 
@@ -1266,7 +1266,6 @@ img.alignright,
 	content: "\00a0\00a0\f107";
 }
 
-
 /* # Content Area
 ---------------------------------------------------------------------------------------------------- */
 
@@ -1280,6 +1279,28 @@ img.alignright,
 
 .content .entry {
 	background-color: #fff;
+}
+
+.entry .uci-post-image-landscape {
+    border-bottom: 0;
+    margin-bottom: 20px;
+}
+
+.entry .uci-post-image-portrait {
+    float: right;
+    text-align: right;
+    max-width: 50%;
+    border-bottom: 0;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.entry .uci-post-image-landscape a{
+    border-bottom: 0;
+}
+
+.entry .uci-post-image-portrait a{
+    border-bottom: 0;
 }
 
 .entry-content ol,
@@ -1302,7 +1323,7 @@ img.alignright,
 }
 
 .entry-content code {
-	background-color: #444; /* UCI custom */
+	background-color: #333; /* UCI custom */
 	color: #ddd;
 }
 
@@ -1350,7 +1371,7 @@ p.entry-meta {
 }
 
 .archive-pagination li a {
-	background-color: #444; /* UCI custom */
+	background-color: #333; /* UCI custom */
 	color: #fff;
 	cursor: pointer;
 	display: inline-block;
@@ -1463,7 +1484,7 @@ li.comment {
 ---------------------------------------------------------------------------------------------------- */
 
 .footer-widgets {
-	background-color: #444; /* UCI custom */
+	background-color: #333; /* UCI custom */
 	clear: both;
 	padding-top: 40px;
 }
@@ -1474,7 +1495,7 @@ li.comment {
 }
 
 .footer-widgets input {
-	border: 1px solid #444; /* UCI custom */
+	border: 1px solid #333; /* UCI custom */
 }
 
 .footer-widgets a.button,
@@ -1513,7 +1534,7 @@ li.comment {
 ---------------------------------------------------------------------------------------------------- */
 
 .site-footer {
-	background-color: #444; /* UCI custom */
+	background-color: #333; /* UCI custom */
 	border-top: none; /* UCI custom */
 	font-size: 16px;
 	line-height: 1;
@@ -1525,6 +1546,17 @@ li.comment {
 	color: #fff; /* UCI custom */
 	margin-bottom: 0;
 }
+
+.sites-cred {
+    background-color: #333; /* UCI custom */
+}
+
+.sites-cred p,
+.sites-cred a {
+    color: #fff; /* UCI custom */
+}
+
+
 
 
 /* # Media Queries
