@@ -1,22 +1,18 @@
 <?php
 
+/**
+ * Add Featured Image support with landscape images
+ * spanning content area and portrait images floating
+ * right with the content wrapping around
+ */
 add_action( 'genesis_before_entry_content', 'featured_post_image', 8 );
 function featured_post_image() {
-    //the_post_thumbnail();
-
     $thumbID = get_post_thumbnail_id();
     $thumbURL = wp_get_attachment_image_src($thumbID, 'post-thumbnail');
     $imgSize = getimagesize($thumbURL[0]);
     $width = $imgSize[0];
     $height = $imgSize[1];
-    /*
-    if($height/$width < 1){
-        echo "<img class='uci-post-image-landscape' src='".$thumbURL[0]."' />";
-    }
-    else {
-        echo "<img class='uci-post-image-portrait' src='" . $thumbURL[0] . "' />";
-    }
-    */
+
     if ( is_singular() ): ?>
         <?php if ($height/$width < 1): ?>
             <div class="uci-post-image-landscape">
@@ -46,10 +42,6 @@ function featured_post_image() {
                 </a>
             </div>
         <?php endif; ?>
-
-
-
-    <?php endif; // End is_singular()
+    <?php endif;
 }
-
 ?>
