@@ -1281,11 +1281,13 @@ img.alignright,
 	background-color: #fff;
 }
 
+/* UCI custom */
 .entry .uci-post-image-landscape {
     border-bottom: 0;
     margin-bottom: 20px;
 }
 
+/* UCI custom */
 .entry .uci-post-image-portrait {
     float: right;
     text-align: right;
@@ -1295,10 +1297,12 @@ img.alignright,
     margin-bottom: 20px;
 }
 
+/* UCI custom */
 .entry .uci-post-image-landscape a{
     border-bottom: 0;
 }
 
+/* UCI custom */
 .entry .uci-post-image-portrait a{
     border-bottom: 0;
 }
@@ -1483,6 +1487,10 @@ li.comment {
 /* # Footer Widgets
 ---------------------------------------------------------------------------------------------------- */
 
+.widget-area {
+    min-height: 1px; /* UCI custom */
+}
+
 .footer-widgets {
 	background-color: #333; /* UCI custom */
 	clear: both;
@@ -1547,10 +1555,12 @@ li.comment {
 	margin-bottom: 0;
 }
 
+/* UCI custom */
 .sites-cred {
     background-color: #333; /* UCI custom */
 }
 
+/* UCI custom */
 .sites-cred p,
 .sites-cred a {
     color: #fff; /* UCI custom */
