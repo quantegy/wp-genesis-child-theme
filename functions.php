@@ -5,7 +5,7 @@ include_once( get_template_directory() . '/lib/init.php' );
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'Genesis UCI Theme' );
 define( 'CHILD_THEME_URL', 'http://sites.uci.edu/' );
-define( 'CHILD_THEME_VERSION', '1.0.1' );
+define( 'CHILD_THEME_VERSION', '1.1.0' );
 
 //* Enqueue custom assets
 add_action( 'wp_enqueue_scripts', 'custom_assets' );
