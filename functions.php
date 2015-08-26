@@ -1,5 +1,7 @@
 <?php
 //* Start the engine
+error_reporting(E_ALL);
+ini_set('display_errors', false);
 include_once( get_template_directory() . '/lib/init.php' );
 
 //* Child theme (do not remove)
