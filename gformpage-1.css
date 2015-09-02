@@ -1,11 +1,55 @@
+/* TWEAK HOSTING THEME */
+
+.content {
+	width: 100%;
+}
+
+.content-sidebar .content,
+.content-sidebar-sidebar .content,
+.sidebar-content-sidebar .content {
+	float: none;
+	margin: auto;
+}
+
+.sidebar-primary {
+	display: none;
+}
+
+.entry-content ol,
+.entry-content ul {
+	margin-left: 0;
+}
+
+.entry-content ol > li,
+.entry-content ul > li {
+	list-style-type: none;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.button {
+	background-color: #eee;
+	font-size: inherit;
+	padding: .5em 1em;
+	text-transform: none;
+}
+
+
+
+/* GRAVITY FORMS SPECIFIC STUFF */
+
 .gform_wrapper {
 	padding: 12px;
 	background-color: #fff;
-	border: 1px solid #999;
+/* 	border: 1px solid #999; */
 	border-radius: 8px;
 }
 iframe[src="about:blank"] {
 	display: none;
+}
+.gsection {
+	margin-top: 2em;
 }
 .gforms_section_break {
 	display: block;
@@ -20,6 +64,7 @@ iframe[src="about:blank"] {
 .gform_description {
 	display: block;
 	border-bottom: 1px solid #999;
+	margin-bottom: 1em;
 	padding-bottom: 1em;
 }
 .gf_progressbar_title {
@@ -57,6 +102,11 @@ iframe[src="about:blank"] {
 .gfield_label {
 	font-size: 16px;
 }
+.gfield input,
+.gfield select,
+.gfield textarea {
+	padding: 4px;
+}
 .ginput_container > * {
 	width: 100%;
 }
@@ -69,8 +119,13 @@ iframe[src="about:blank"] {
 .ginput_container textarea {
 	border: 1px solid #999;
 }
+.ginput_complex input,
+.ginput_complex select,
+.ginput_complex textarea {
+	width: auto;
+}
 .ginput_complex label {
-	margin-left: .5em;
+	margin-right: 2em;
 }
 .ginput_counter {
 	font-size: 12px;
@@ -81,6 +136,12 @@ iframe[src="about:blank"] {
 .ginput_full {
 	display: block;
 	margin-bottom: .5em;
+}
+.gfield_list tbody {
+	border-bottom: none;
+}
+.gfield_list td {
+	border-top: none;
 }
 .gfield_radio {
 	list-style: none;
