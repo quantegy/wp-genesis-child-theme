@@ -1,8 +1,9 @@
 <?php
 //* Start the engine
 error_reporting(E_ALL);
-ini_set('display_errors', false);
+ini_set('display_errors', true);
 include_once( get_template_directory() . '/lib/init.php' );
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'Genesis UCI Theme' );
@@ -14,6 +15,9 @@ add_action( 'wp_enqueue_scripts', 'custom_assets' );
 function custom_assets() {
 	wp_enqueue_script( 'genesis-uci-menu-toggle', get_stylesheet_directory_uri().'/js/genesis-uci-menu-toggle.js', array('jquery'), CHILD_THEME_VERSION, true );
 	wp_enqueue_style( 'font-awesome', '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css', array(), '4.0.3' );
+	if(is_plugin_active('gravityforms/gravityforms.php') || is_plugin_active_for_network('gravityforms/gravityforms.php')){
+		wp_enqueue_style( 'gravity-forms-css', get_stylesheet_directory_uri().'/gformpage-1.css');
+	}
 	//wp_enqueue_style( 'asset-handle', 'asset-uri', array('depencies'), CHILD_THEME_VERSION );
 }
 
@@ -41,5 +45,3 @@ require_once('functions_contact_widget.php');
 require_once('fucntions_social_media_list_widget.php');
 require_once('functions_featured_image.php');
 require_once('functions_footer_widget_always_display.php');
-
-
