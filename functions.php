@@ -1,7 +1,7 @@
 <?php
 //* Start the engine
 error_reporting(E_ALL);
-ini_set('display_errors', true);
+ini_set('display_errors', false);
 include_once( get_template_directory() . '/lib/init.php' );
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
