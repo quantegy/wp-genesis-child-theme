@@ -1,49 +1,25 @@
-/* TWEAK HOSTING THEME */
-
-.content {
-	width: 100%;
-}
-
-.content-sidebar .content,
-.content-sidebar-sidebar .content,
-.sidebar-content-sidebar .content {
-	float: none;
-	margin: auto;
-}
-
-.sidebar-primary {
-	display: none;
-}
-
-.entry-content ol,
-.entry-content ul {
-	margin-left: 0;
-}
-
-.entry-content ol > li,
-.entry-content ul > li {
-	list-style-type: none;
-}
-
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-.button {
-	background-color: #eee;
-	font-size: inherit;
-	padding: .5em 1em;
-	text-transform: none;
-}
-
-
-
-/* GRAVITY FORMS SPECIFIC STUFF */
-
 .gform_wrapper {
 	padding: 12px;
 	background-color: #fff;
 /* 	border: 1px solid #999; */
 	border-radius: 8px;
+}
+.gform_wrapper  ol,
+.gform_wrapper  ul {
+	margin-left: 0;
+}
+.gform_wrapper ol > li,
+.gform_wrapper ul > li {
+	list-style-type: none;
+}
+.gform_wrapper input[type="button"],
+.gform_wrapper input[type="submit"],
+.gform_wrapper input[type="reset"],
+.gform_wrapper .button {
+	background-color: #eee;
+	font-size: inherit;
+	padding: .5em 1em;
+	text-transform: none;
 }
 iframe[src="about:blank"] {
 	display: none;
