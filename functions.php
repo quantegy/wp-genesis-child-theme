@@ -33,6 +33,11 @@ add_theme_support( 'genesis-footer-widgets', 4 );
 //* Use standard WordPress search because the Genesis variant isn't accessible
 remove_filter( 'get_search_form', 'genesis_search_form' );
 
+/**
+ * Custom GravityForms implementation
+ * @todo remove this and make a plugin
+ */
+require_once 'plugins/extgravityforms/extgravityforms.php';
 
 //* UCI theme customizations
 require_once('functions_post_title.php');
